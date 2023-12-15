@@ -44,19 +44,22 @@ function create_card(issue_content){
     // });
     
     
-    dynamic_issue_div.innerHTML=`<p>${issue_content}</p><button class="material-icons" id="delete_iss_btn">delete</button>`
+    dynamic_issue_div.innerHTML=`<p>${issue_content}</p><button class="material-icons delete_iss_btn" id="">delete</button>`
    
     todo_container.appendChild(dynamic_issue_div);
 
-    let delete_btn= document.getElementById("delete_iss_btn");
+    let delete_btn= document.querySelectorAll(".delete_iss_btn");
     // console.log(delete_btn);
-    delete_btn.addEventListener("click",deleteIssue);
+    delete_btn.forEach(each_btn=>{
+        each_btn.addEventListener("click", deleteIssue);
+    });
+    
 }  
 
 
 function deleteIssue(event){
     // console.log(event.target);
-    const parent= event.target.parentNode.remove();
+    let parent= event.target.parentNode.remove();
 }
 
 
